@@ -1,0 +1,11 @@
+services:
+  flask-app:
+    build: .
+    ports:
+      - "1000:1000"
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_RUN_HOST=0.0.0.0
+    volumes:
+      - .:/app
+    restart: always
