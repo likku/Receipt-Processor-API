@@ -7,13 +7,11 @@ WORKDIR /app
 COPY . /app
 
 # Using the req file
+COPY requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
 
-EXPOSE 1000
+# Copy the application code
+COPY . /app/
 
-# Defining env variables
-ENV FLASK_APP=app.py
-ENV FLASK_RUN_HOST=0.0.0.0
-
-# Run Flask when start
-CMD ["flask", "run"]
+# Set the default command to run Flask with the specified host and port
+CMD ["flask", "run", "--host=0.0.0.0", "--port=3000"]
