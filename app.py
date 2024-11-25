@@ -2,8 +2,6 @@ from flask import Flask, jsonify, request, abort
 import uuid
 from math import ceil
 import re
-import subprocess
-import platform
 
 app = Flask(__name__)
 
@@ -113,5 +111,4 @@ def get_receipt_points(id):
     return jsonify({'points': points}), 200
 
 if __name__ == '__main__':
-    print("Main")
     app.run(debug=True, host="0.0.0.0", port=3000)
